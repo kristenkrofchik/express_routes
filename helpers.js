@@ -38,8 +38,25 @@ function findMode(nums) {
 
 }
 
+function handleNumsArray(queryNums) {
+    let result = [];
+  
+    for (let i = 0; i < queryNums.length; i++) {
+      let valToNumber = Number(queryNums[i]);
+  
+      if (Number.isNaN(valToNumber)) {
+        return new Error(
+          `The value '${queryNums[i]}' is not a valid number. Please try again.`
+        );
+      }
+      result.push(valToNumber);
+    }
+    return result;
+  }
+
 module.exports = {
     findMean,
     findMedian,
     findMode,
+    handleNumsArray
   };
